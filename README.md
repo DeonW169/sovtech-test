@@ -1,3 +1,16 @@
+## Important info regarding this app
+
+Details about the environment used for development
+Node - V8.11.2
+Chrome - 67.0.3396.99
+npm - 5.6.0
+
+## In order to run this Application
+open terminal, and run npm install
+then run npm start. This will go to localhost:3000
+for tests - npm test.
+
+## Default ReadMe content
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
