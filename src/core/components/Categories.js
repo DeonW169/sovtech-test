@@ -12,7 +12,8 @@ class CategoriesComponent extends Component {
     }
 
     static defaultProps = {
-        categories: []
+        categories: [],
+        category: {}
     }
 
     componentWillMount() {
@@ -20,12 +21,10 @@ class CategoriesComponent extends Component {
     }
 
     loadCategory(category) {
-        debugger
         this.props.getCategory(category);
     }
 
     render() {
-        let { loading, categories } = this.props;
 
         const _categories = [];
         this.props.categories.map(_category => {
@@ -33,11 +32,12 @@ class CategoriesComponent extends Component {
                 _categories.push(_category)
             }
         });
+
         return ( 
             <div>
                 <NavbarComponent> </NavbarComponent> 
                 <div className="container">
-                    <div className="col-sm-6" >
+                    <div className="col-sm-8" >
                         <div className="row" >
                             <h4 className=""> Categories </h4> 
 
@@ -51,7 +51,7 @@ class CategoriesComponent extends Component {
                                             <p>
                                                 Content about <strong>{cat}</strong> <br />
                                                 Click the button to learn more
-                                                <button onClick={this.loadCategory({cat})}>Open {cat}</button>
+                                                <button onClick={this.loadCategory.bind(this, cat)}>Open {cat}</button>
                                             </p>
                                         </li>
                                         )
@@ -61,10 +61,25 @@ class CategoriesComponent extends Component {
                             </section>
                         </div>
                     </div>
-                    <div className="col-sm-6">
-                        <div className="row" >
-                            <h4 className=""> Category </h4>
-                            <CategoryComponent ></CategoryComponent>
+                    <div className="col-sm-4">
+                        <div className="row">
+                            <div className="col-sm-4">
+                                <a href="https://sov.tech/"><img src={this.props.category ? this.props.category.icon_url : ''} alt="sovtech" /></a>
+                            </div>
+                            <div className="col-sm-8">
+                                <div className="row" >
+                                    <h4 className=""> Joke </h4>
+                                    <p>
+                                        {this.props.category ? this.props.category.value : 'no category chosen'}
+                                    </p>
+                                </div>
+                                <div className="row" >
+                                    <h4 className=""> Chucks Id </h4>
+                                    <p>
+                                        {this.props.category ? this.props.category.id : ''}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -37,10 +37,10 @@ export const categoriesSuccess = (data) => {
     };
 }
 
-export const getCategory = (category) => {
+export const getCategory = (cat) => {
     return (dispatch) => {
         dispatch(setCategoryLoading(true))
-        return axios.get(categoryUrl + category)
+        return axios.get(categoryUrl + cat)
             .then((response) => {
                 dispatch(categorySuccess(response.data));
             }, (error) => {

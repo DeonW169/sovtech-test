@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { withStyles } from 'material-ui/styles';
@@ -25,13 +25,12 @@ static defaultProps = {
 }
 
 render() {
-  let {classes, isLoggedIn} = this.props;
+  let {classes} = this.props;
   return (
       <div className={classes.root}>
           <Router>
               <Switch>
-                  <ProtectedRoute exact path="/categories" component={CategoriesContainer}  prevent={!this.props.isLoggedIn} redirect="/login"/>
-                  <Route render={() => !this.props.isLoggedIn ? <Redirect to="/login" /> : <Redirect to="/categories" />} />
+                  <ProtectedRoute exact path="/" component={CategoriesContainer}  prevent={!this.props.isLoggedIn} redirect="/categories"/>
               </Switch>
           </Router>
       </div>

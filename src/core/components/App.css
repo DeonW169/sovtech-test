@@ -83,8 +83,7 @@ header i {
 }
 
 .display-item {
-  width: 65%;
-  margin-left: 50px;
+  width: 100%;
 }
 
 .display-item button {

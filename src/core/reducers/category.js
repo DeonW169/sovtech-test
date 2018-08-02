@@ -2,7 +2,7 @@ import { CATEGORY_LOADING, CATEGORY_SUCCESS } from '../actions/categories';
 
 const initialState = {
     loading: true,
-    category: {}
+    category: null
 }
 const category = (state = initialState, action) => {
     switch (action.type) {
@@ -14,7 +14,7 @@ const category = (state = initialState, action) => {
         case CATEGORY_SUCCESS:
             return {
                 ...state,
-                category: [...action.payload]
+                category: {...action.payload}
             }
         default:
             return state;
